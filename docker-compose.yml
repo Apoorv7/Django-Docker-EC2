@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  userservice: 
+    build: ./UserService/userservice
+    image: userservice
+    container_name: userservice-container
+    ports:
+      - 5000:5000
+    networks:
+      - django-docker
+ 
+  todo: 
+    build: ./ToDo/Todo
+    image: todo
+    container_name: todo-container
+    ports:
+      - 5001:5001
+    depends_on:
+      - userservice
+    networks:
+      - django-docker
+
+networks:
+  django-docker:
+    name: django_docker
+    driver: bridge
