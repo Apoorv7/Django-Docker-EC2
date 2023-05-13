@@ -13,6 +13,10 @@
 ### Networks:
 - `django-docker`
 
+
+> Before running docker compose you need to add docker_user and docker_pass in environment variable. For more info you can view `views.py` file in `todo_app` folder.
+
+
 ## Ways for building images and Running Container
 With Docker Compose file we can directly run the below command:
 

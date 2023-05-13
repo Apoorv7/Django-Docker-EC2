@@ -6,8 +6,12 @@ from rest_framework.decorators import api_view
 from rest_framework import generics
 import os
 
+'''
+Need to add docker_user=admin and docker_pass=admin in your environment variables
+'''
 user_api = os.getenv('docker_user')
 pass_api = os.getenv('docker_pass')
+
 class index(generics.ListAPIView):
     try:
         response = requests.get("http://userservice-container:5000/users/",auth = (user_api, pass_api)).json()    
